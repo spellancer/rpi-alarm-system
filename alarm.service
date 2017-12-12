@@ -1,0 +1,11 @@
+[Unit]
+Description=Alarm system
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/python3 /home/pi/src/alarm-system/new_meta/main.py >> /var/log/alarm/alarm-service.log 2>&1
+
+[Install]
+WantedBy=graphical.target
